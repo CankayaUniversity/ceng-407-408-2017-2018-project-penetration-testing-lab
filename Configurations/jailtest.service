@@ -1,0 +1,11 @@
+[Unit]
+Description=jail test
+
+[Service]
+User=lazar
+WorkingDirectory=/home/lazar
+ExecStart=/usr/local/bin/jail
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
