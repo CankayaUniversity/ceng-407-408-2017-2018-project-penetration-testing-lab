@@ -1,0 +1,15 @@
+[options]
+        logfile = /var/log/knockd.log
+
+[openSSH]
+        sequence    = 7000,8000,9000
+        seq_timeout = 15
+        command     = /sbin/iptables -D INPUT -p tcp --dport 22 -j REJECT
+        tcpflags    = syn
+
+[closeSSH]
+        sequence    = 9000,8000,7000
+        seq_timeout = 15
+        command     = /sbin/iptables -A INPUT -p tcp --dport 22 -j REJECT
+        tcpflags    = syn
+
